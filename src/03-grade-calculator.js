@@ -30,11 +30,11 @@ export function calculateGrade(score, hasExtraCredit) {
     return "INVALID"
   }
   if(hasExtraCredit){
+    if(score<95){
     score += 5
+    }
   }
-  if(score > 100){
-    score = 100
-  }
+  
   if(score >= 90){
     return  "A"
   }
