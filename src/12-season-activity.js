@@ -31,5 +31,41 @@
  * @returns {{ season: string, activity: string } | null}
  */
 export function getSeasonActivity(month, temperature) {
-  // Your code here
+    if (month < 1 || month > 12) {
+    return null;
+  }
+
+  let season = "";
+  let activity = "";
+
+ 
+  if (month === 12 || month === 1 || month === 2) {
+    season = "Winter";
+  }
+  else if (month >= 3 && month <= 5) {
+    season = "Spring";
+  }
+  else if (month >= 6 && month <= 8) {
+    season = "Summer";
+  }
+  else {
+    season = "Autumn";
+  }
+
+ 
+  if (season === "Winter") {
+    activity = temperature < 0 ? "skiing" : "ice skating";
+  }
+  else if (season === "Spring") {
+    activity = temperature > 20 ? "hiking" : "museum visit";
+  }
+  else if (season === "Summer") {
+    activity = temperature > 35 ? "swimming" : "cycling";
+  }
+  else if (season === "Autumn") {
+    activity = temperature > 15 ? "nature walk" : "reading at a cafe";
+  }
+
+  return { season, activity };
 }
+//Can use if else but i tried ternary operators
